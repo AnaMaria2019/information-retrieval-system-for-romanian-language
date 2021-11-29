@@ -14,3 +14,10 @@ src/main/resources/gitignore/*
 # Maven #
 #########
 target/
+
+#################
+# Apache Lucene #
+#################
+# index/ is the directory where Lucene outputs the documents' inverted index
+# and it is generated after the first call of the IndexFiles java class
+index/
