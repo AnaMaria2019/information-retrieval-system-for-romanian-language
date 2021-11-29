@@ -1,3 +1,6 @@
+#################
+# IntelliJ IDEA #
+#################
 .gradle
 .idea/
 !.idea/icon*.png
@@ -6,3 +9,8 @@ build/
 src/main/gen
 src/main/resources/templates.list
 src/main/resources/gitignore/*
+
+#########
+# Maven #
+#########
+target/
