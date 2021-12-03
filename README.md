@@ -29,3 +29,7 @@ Here are the steps I followed to make the setup:
 * lucene-analyzers-common-8.11.0.jar
 * lucene-core-8.11.0.jar
 * lucene-queryparser-8.11.0.jar
+
+## Run the application
+* For indexing the documents (all documents that will be indexed are placed in the *files* directory) you will <b>run main function</b> inside <b>IndexFiles</b> class, with the argument *--open-mode=mode* where *mode* can be either *CREATE*, or *APPEND* - this action will create a new directory called *index* where the documents' index is placed
+* To run a search, next you will <b>run main function</b> inside <b>SearchFiles</b> class, with the following arguments: the first argument must be *--query-path* and the second one will be the path to the file that contains your query
