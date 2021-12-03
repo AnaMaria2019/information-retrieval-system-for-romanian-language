@@ -4,6 +4,8 @@
 ## Setup steps
 During the development process of the project I worked with <b>IntelliJ IDEA 2021.2.3 (Community Edition)</b>.
 Here are the steps I followed to make the setup:
+
+**NOTE**: With the purpose of avoiding writing absolute paths, make the project's directory the *Sources Root*
 1. Create a new IntelliJ Maven project - this will also create a *pom.xml* file dedicated for Maven configuration settings
 2. Add Apache Lucene jars (listed [here](#apache-lucene-jars)) to the project (for each jar, repeat the *v* and *vi* steps)
     1. Go to the <b>File</b> tab
