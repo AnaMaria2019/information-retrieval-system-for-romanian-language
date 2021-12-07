@@ -25,10 +25,7 @@ public class CustomSearchAnalyzer extends Analyzer {
     private static CharArraySet getRoStopWords(File stopWordsFile) throws IOException {
         String content = FileUtils.readFileToString(stopWordsFile, "UTF-8");
         // Remove diacritics of the stop words
-        content = content.replaceAll("[ăâ]", "a");
-        content = content.replaceAll("[ț]", "t");
-        content = content.replaceAll("[ș]", "s");
-        content = content.replaceAll("[î]", "i");
+        content = Utils.removeRoDiacritics(content);
         List<String> words = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
 

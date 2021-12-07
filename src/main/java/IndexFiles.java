@@ -44,10 +44,7 @@ public class IndexFiles {
     private static CharArraySet getRoStopWords(File stopWordsFile) throws IOException {
         String content = FileUtils.readFileToString(stopWordsFile, "UTF-8");
         // Remove diacritics of the stop words
-        content = content.replaceAll("[ăâ]", "a");
-        content = content.replaceAll("[ț]", "t");
-        content = content.replaceAll("[ș]", "s");
-        content = content.replaceAll("[î]", "i");
+        content = Utils.removeRoDiacritics(content);
 
         List<String> words = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
@@ -88,10 +85,7 @@ public class IndexFiles {
         tokenizer.close();
 
         String tempTokens = sb.toString().toLowerCase();
-        tempTokens = tempTokens.replaceAll("[ăâ]", "a");
-        tempTokens = tempTokens.replaceAll("[ț]", "t");
-        tempTokens = tempTokens.replaceAll("[ș]", "s");
-        tempTokens = tempTokens.replaceAll("[î]", "i");
+        tempTokens = Utils.removeRoDiacritics(tempTokens);
 
         Tokenizer tokenizer2 = new StandardTokenizer();
         tokenizer2.setReader(new StringReader(tempTokens));

@@ -38,10 +38,7 @@ public class SearchFiles {
         pathToQuery = args[1];
         File queryFile = new File(pathToQuery);
         String queryFileContent = FileUtils.readFileToString(queryFile, "UTF-8");
-        queryFileContent = queryFileContent.replaceAll("[ăâ]", "a");
-        queryFileContent = queryFileContent.replaceAll("[ș]", "s");
-        queryFileContent = queryFileContent.replaceAll("[ț]", "t");
-        queryFileContent = queryFileContent.replaceAll("[î]", "i");
+        queryFileContent = Utils.removeRoDiacritics(queryFileContent);
 
         Path indexDirectoryPath = Paths.get("index");
         Directory indexDirectory = FSDirectory.open(indexDirectoryPath);
