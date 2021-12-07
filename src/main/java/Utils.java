@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Utils {
+    // NOTE: By making a private constructor we will prevent from
+    // instantiating an object of this class
+    private Utils() {
+        throw new AssertionError();
+    }
+
     public static String removeRoDiacritics(String text) {
         text = text.replaceAll("[ăâ]", "a");
         text = text.replaceAll("[ț]", "t");
