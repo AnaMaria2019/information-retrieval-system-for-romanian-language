@@ -39,7 +39,6 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 // TikaException is raised if a stream can be read, but not parsed
 // (for example when the document is corrupted).
 public class IndexFiles {
-
     private static TokenStream getDocumentTokens(String content) throws IOException {
         Tokenizer tokenizer = new StandardTokenizer();
         tokenizer.setReader(new StringReader(content));
