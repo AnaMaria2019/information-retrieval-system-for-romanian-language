@@ -33,7 +33,6 @@ import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.core.StopFilter;
 import org.apache.lucene.analysis.core.LowerCaseFilter;
 import org.apache.lucene.analysis.snowball.SnowballFilter;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
 
 // TikaException is raised if a stream can be read, but not parsed
