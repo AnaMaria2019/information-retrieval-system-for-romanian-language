@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;

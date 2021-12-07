@@ -1,10 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.TokenStream;
