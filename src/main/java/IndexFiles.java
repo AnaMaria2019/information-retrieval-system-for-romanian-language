@@ -40,35 +40,16 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 // (for example when the document is corrupted).
 public class IndexFiles {
     private static TokenStream getDocumentTokens(String content) throws IOException {
-        Tokenizer tokenizer = new StandardTokenizer();
-        tokenizer.setReader(new StringReader(content));
-        StringBuilder sb = new StringBuilder();
-
         File roStopWordsFile = new File("ro-stop-words.txt");
         CharArraySet roStopWords = Utils.getRoStopWords(roStopWordsFile);
-
+        Tokenizer tokenizer = new StandardTokenizer();
         TokenStream finalTokens;
 
-        CharTermAttribute token = tokenizer.getAttribute(CharTermAttribute.class);
+        content = content.toLowerCase();
+        content = Utils.removeRoDiacritics(content);
 
-        tokenizer.reset();
-        while(tokenizer.incrementToken()){
-            if(sb.length() > 0){
-                sb.append(" ");
-            }
-            sb.append(token.toString());
-        }
-
-        tokenizer.end();
-        tokenizer.close();
-
-        String tempTokens = sb.toString().toLowerCase();
-        tempTokens = Utils.removeRoDiacritics(tempTokens);
-
-        Tokenizer tokenizer2 = new StandardTokenizer();
-        tokenizer2.setReader(new StringReader(tempTokens));
-
-        finalTokens = new LowerCaseFilter(tokenizer2);
+        tokenizer.setReader(new StringReader(content));
+        finalTokens = new LowerCaseFilter(tokenizer);
         finalTokens = new StopFilter(finalTokens, roStopWords);
         finalTokens = new SnowballFilter(finalTokens, "Romanian");
 
