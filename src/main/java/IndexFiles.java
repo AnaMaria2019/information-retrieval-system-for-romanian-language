@@ -41,25 +41,6 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 // TikaException is raised if a stream can be read, but not parsed
 // (for example when the document is corrupted).
 public class IndexFiles {
-    private static CharArraySet getRoStopWords(File stopWordsFile) throws IOException {
-        String content = FileUtils.readFileToString(stopWordsFile, "UTF-8");
-        // Remove diacritics of the stop words
-        content = Utils.removeRoDiacritics(content);
-
-        List<String> words = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-
-        for(int i = 0; i < content.length(); i++){
-            if(content.charAt(i) == '\n'){
-                words.add(sb.toString());
-                sb = new StringBuilder();
-            } else{
-                sb.append(content.charAt(i));
-            }
-        }
-
-        return new CharArraySet(words, true);
-    }
 
     private static TokenStream getDocumentTokens(String content) throws IOException {
         Tokenizer tokenizer = new StandardTokenizer();
@@ -67,7 +48,7 @@ public class IndexFiles {
         StringBuilder sb = new StringBuilder();
 
         File roStopWordsFile = new File("ro-stop-words.txt");
-        CharArraySet roStopWords = getRoStopWords(roStopWordsFile);
+        CharArraySet roStopWords = Utils.getRoStopWords(roStopWordsFile);
 
         TokenStream finalTokens;
 
